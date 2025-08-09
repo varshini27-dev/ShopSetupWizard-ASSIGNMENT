@@ -108,28 +108,69 @@ $(document).ready(function() {
         wizardData.priceInclusiveGst = $(this).prop('checked');
     });
 
-    // Pricing field handlers
+    // Pricing field handlers with validation
     $('#net-price, #list-price').on('input', function() {
+        let value = $(this).val();
+        // Remove any non-numeric characters except decimal point
+        value = value.replace(/[^0-9.]/g, '');
+        // Ensure only one decimal point
+        const parts = value.split('.');
+        if (parts.length > 2) {
+            value = parts[0] + '.' + parts.slice(1).join('');
+        }
+        $(this).val(value);
+        
         const field = $(this).attr('id').replace('-', '');
-        wizardData[field] = $(this).val();
+        wizardData[field] = value;
         updateProductPreview();
         calculateDiscount();
     });
 
     $('#discount-percentage').on('input', function() {
-        wizardData.discountPercentage = $(this).val();
+        let value = $(this).val();
+        value = value.replace(/[^0-9.]/g, '');
+        const parts = value.split('.');
+        if (parts.length > 2) {
+            value = parts[0] + '.' + parts.slice(1).join('');
+        }
+        // Limit to 100%
+        if (parseFloat(value) > 100) {
+            value = '100';
+        }
+        $(this).val(value);
+        wizardData.discountPercentage = value;
     });
 
     $('#gst-rate').on('input', function() {
-        wizardData.gstRate = $(this).val();
+        let value = $(this).val();
+        value = value.replace(/[^0-9.]/g, '');
+        const parts = value.split('.');
+        if (parts.length > 2) {
+            value = parts[0] + '.' + parts.slice(1).join('');
+        }
+        if (parseFloat(value) > 100) {
+            value = '100';
+        }
+        $(this).val(value);
+        wizardData.gstRate = value;
     });
 
     $('#shipping-charges').on('input', function() {
-        wizardData.shippingCharges = $(this).val();
+        let value = $(this).val();
+        value = value.replace(/[^0-9.]/g, '');
+        const parts = value.split('.');
+        if (parts.length > 2) {
+            value = parts[0] + '.' + parts.slice(1).join('');
+        }
+        $(this).val(value);
+        wizardData.shippingCharges = value;
     });
 
     $('#stock-level').on('input', function() {
-        wizardData.stockLevel = $(this).val();
+        let value = $(this).val();
+        value = value.replace(/[^0-9]/g, ''); // Only integers for stock
+        $(this).val(value);
+        wizardData.stockLevel = value;
     });
 
     // Image upload handler
@@ -223,7 +264,40 @@ $(document).ready(function() {
         selectedCard.addClass('selected');
         selectedCard.find('.btn-theme-action').addClass('selected').html('<i class="fas fa-check"></i>');
         
+        // Apply theme colors to the page
+        applyTheme(theme);
+        
         showToast(`${theme.charAt(0).toUpperCase() + theme.slice(1)} theme selected`, 'success');
+    }
+
+    function applyTheme(theme) {
+        const root = document.documentElement;
+        
+        switch(theme) {
+            case 'bags':
+                root.style.setProperty('--primary-orange', '#FF6B35');
+                root.style.setProperty('--secondary-turquoise', '#17A2B8');
+                root.style.setProperty('--accent-blue', '#007BFF');
+                $('.wizard-header').css('background', 'linear-gradient(135deg, #FF6B35, #FF8A65)');
+                break;
+            case 'flex':
+                root.style.setProperty('--primary-orange', '#00D4AA');
+                root.style.setProperty('--secondary-turquoise', '#007BFF');
+                root.style.setProperty('--accent-blue', '#6C5CE7');
+                $('.wizard-header').css('background', 'linear-gradient(135deg, #00D4AA, #26D0CE)');
+                break;
+            case 'chic':
+                root.style.setProperty('--primary-orange', '#A8E6CF');
+                root.style.setProperty('--secondary-turquoise', '#FFD3A5');
+                root.style.setProperty('--accent-blue', '#FD79A8');
+                $('.wizard-header').css('background', 'linear-gradient(135deg, #A8E6CF, #FFD3A5)');
+                break;
+        }
+        
+        // Update progress bar and buttons
+        $('.progress-bar').css('background-color', 'var(--primary-orange)');
+        $('.btn-primary').css('background-color', 'var(--primary-orange)');
+        $('.btn-primary').css('border-color', 'var(--primary-orange)');
     }
 
     function updateFlowDiagram() {
