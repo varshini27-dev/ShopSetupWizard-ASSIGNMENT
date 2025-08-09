@@ -409,9 +409,81 @@ $(document).ready(function() {
         // Here you would typically send the data to your backend
         // For now, we'll just show a completion message
         setTimeout(() => {
-            alert('Congratulations! Your shop has been set up successfully.');
+            const userConfirm = confirm('Congratulations! Your shop has been set up successfully.\n\nWould you like to set up another shop?');
+            if (userConfirm) {
+                resetWizard();
+            }
         }, 1000);
     }
+
+    function resetWizard() {
+        // Reset wizard data
+        wizardData = {
+            theme: '',
+            productType: '',
+            category: '',
+            subcategory: '',
+            productName: '',
+            productDescription: '',
+            skuCode: '',
+            hasSku: true,
+            hasHsn: false,
+            priceInclusiveGst: true,
+            netPrice: '',
+            listPrice: '',
+            discountPercentage: '',
+            gstRate: '',
+            shippingCharges: '',
+            stockLevel: '',
+            productImage: ''
+        };
+
+        // Reset UI to step 1
+        currentStep = 1;
+        goToStep(1);
+
+        // Clear all form inputs
+        $('input[type="text"], input[type="email"], textarea').val('');
+        $('input[type="checkbox"]').prop('checked', false);
+        $('#price-inclusive-gst').prop('checked', true);
+        $('#has-sku').prop('checked', true);
+
+        // Reset theme selection
+        $('.theme-card').removeClass('selected');
+        $('.btn-theme-action').removeClass('selected').html('Apply');
+
+        // Reset flow diagram
+        $('.product-type-box').text('Product type');
+        $('.category-box').text('Category');  
+        $('.subcategory-box').text('Sub-Category');
+
+        // Reset product preview
+        $('.product-title-preview').text('Product title');
+        $('.product-description-preview p').text('Add a detailed product description to help customers understand what you\'re selling. Include features, benefits, and specifications.');
+        $('.original-price').text('₹ 0').hide();
+        $('.discounted-price').text('₹ 0').hide();
+        $('.product-price-preview').hide();
+
+        // Reset image preview
+        $('.preview-image-placeholder')
+            .addClass('empty')
+            .css('background-image', '')
+            .attr('style', function(i, style) {
+                return style && style.replace(/background-image[^;]+;?/g, '');
+            });
+
+        // Reset theme colors to default
+        const root = document.documentElement;
+        root.style.setProperty('--primary-orange', '#FF6B35');
+        root.style.setProperty('--secondary-turquoise', '#17A2B8');
+        root.style.setProperty('--accent-blue', '#007BFF');
+        $('.wizard-header').css('background', 'linear-gradient(135deg, var(--primary-orange), var(--secondary-turquoise))');
+
+        showToast('Wizard reset successfully! Ready for new shop setup.', 'info');
+    }
+
+    // Make resetWizard globally accessible
+    window.resetWizard = resetWizard;
 
     function showToast(message, type = 'info') {
         // Remove existing toasts
@@ -460,6 +532,17 @@ $(document).ready(function() {
     // Handle form submission prevention
     $('form').on('submit', function(e) {
         e.preventDefault();
+    });
+
+    // Add keyboard shortcut for reset (Ctrl+R or Cmd+R)
+    $(document).on('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
+            e.preventDefault();
+            const userConfirm = confirm('Are you sure you want to restart the wizard? All progress will be lost.');
+            if (userConfirm) {
+                resetWizard();
+            }
+        }
     });
 
     // Add loading states for better UX

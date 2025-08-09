@@ -1093,6 +1093,18 @@ h1, h2, h3, h4, h5, h6 {
         min-height: 50px;
         font-weight: 600;
         font-size: 1rem;
+        border-radius: 8px;
+    }
+    
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: white;
+    }
+    
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
     }
 }
 
