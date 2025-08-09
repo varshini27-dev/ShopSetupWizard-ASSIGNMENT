@@ -60,6 +60,13 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
 }
 
+.step-description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
 .theme-section-title,
 .form-section-title {
     font-size: 1.75rem;
@@ -447,17 +454,21 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Theme Info and Actions */
 .theme-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin-bottom: var(--spacing-sm);
 }
 
 .theme-name {
     font-size: 1.1rem;
     font-weight: 600;
-    margin: 0;
+    margin: 0 0 4px 0;
     color: var(--text-dark);
+}
+
+.theme-description {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0 0 8px 0;
+    line-height: 1.4;
 }
 
 .theme-badge {
@@ -467,6 +478,32 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     font-size: 0.75rem;
     font-weight: 500;
+}
+
+.theme-badge.modern {
+    background: var(--secondary-turquoise);
+}
+
+.theme-badge.elegant {
+    background: var(--accent-blue);
+}
+
+/* Theme hover animations */
+.theme-card .theme-mockup {
+    transition: var(--transition);
+}
+
+.theme-card:hover .theme-mockup {
+    transform: scale(1.02);
+}
+
+.theme-card:hover .browser-dots .dot {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
 }
 
 .theme-action {

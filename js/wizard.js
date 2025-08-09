@@ -2,7 +2,7 @@ $(document).ready(function() {
     // Initialize wizard state
     let currentStep = 1;
     let wizardData = {
-        theme: 'bags',
+        theme: '',
         productType: '',
         category: '',
         subcategory: '',
