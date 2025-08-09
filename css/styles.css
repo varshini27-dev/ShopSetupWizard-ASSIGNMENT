@@ -806,19 +806,27 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.preview-image-placeholder::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
-    background-size: contain;
-    opacity: 0.7;
+.preview-image-placeholder:hover {
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow);
+}
+
+.preview-image-placeholder.empty::before {
+    content: '📷';
+    font-size: 2.5rem;
+    color: white;
+    opacity: 0.8;
+}
+
+.preview-image-placeholder:not(.empty)::before {
+    content: none;
 }
 
 .product-details-preview {
@@ -987,11 +995,23 @@ h1, h2, h3, h4, h5, h6 {
     
     .nav-buttons {
         flex-direction: column;
-        align-items: center;
+        gap: 1rem;
+        align-items: stretch;
+        width: 100%;
     }
     
     .btn {
-        min-width: 200px;
+        min-width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        text-align: center;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .btn:active {
+        transform: scale(0.98);
     }
     
     .progress-bar-container {
@@ -1035,6 +1055,8 @@ h1, h2, h3, h4, h5, h6 {
     
     .theme-card {
         padding: var(--spacing-sm);
+        cursor: pointer;
+        touch-action: manipulation;
     }
     
     .theme-name {
@@ -1042,8 +1064,9 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .btn-theme-action {
-        padding: 6px 16px;
-        font-size: 0.85rem;
+        padding: 8px 18px;
+        font-size: 0.9rem;
+        min-height: 44px; /* iOS recommended touch target size */
     }
     
     .product-form-scrollable {
@@ -1054,6 +1077,22 @@ h1, h2, h3, h4, h5, h6 {
         min-width: 120px;
         padding: 12px 16px;
         font-size: 0.9rem;
+    }
+    
+    /* Enhanced mobile navigation */
+    .wizard-navigation {
+        position: sticky;
+        bottom: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+    
+    .wizard-navigation .btn {
+        min-height: 50px;
+        font-weight: 600;
+        font-size: 1rem;
     }
 }
 

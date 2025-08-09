@@ -120,8 +120,12 @@ $(document).ready(function() {
         }
         $(this).val(value);
         
-        const field = $(this).attr('id').replace('-', '');
+        const fieldId = $(this).attr('id');
+        const field = fieldId.replace('-', '');
+        
+        // Store both camelCase and the actual field name for consistency
         wizardData[field] = value;
+        wizardData[fieldId.replace('-', '')] = value;
         updateProductPreview();
         calculateDiscount();
     });
@@ -175,8 +179,35 @@ $(document).ready(function() {
 
     // Image upload handler
     $('.image-upload-area').on('click', function() {
-        // Simulate file upload dialog
-        showToast('Image upload functionality would be implemented with file input', 'info');
+        // Create a hidden file input
+        const fileInput = $('<input type="file" accept="image/*" style="display: none;">');
+        $('body').append(fileInput);
+        
+        fileInput.on('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageUrl = e.target.result;
+                    // Update the preview image
+                    $('.preview-image-placeholder').css({
+                        'background-image': `url(${imageUrl})`,
+                        'background-size': 'cover',
+                        'background-position': 'center'
+                    }).removeClass('empty');
+                    
+                    // Store image data
+                    wizardData.productImage = imageUrl;
+                    
+                    showToast('Product image uploaded successfully!', 'success');
+                };
+                reader.readAsDataURL(file);
+            }
+            // Remove the temporary file input
+            fileInput.remove();
+        });
+        
+        fileInput.click();
     });
 
     // Toolbar icon handlers
@@ -316,15 +347,33 @@ $(document).ready(function() {
         const originalPrice = $('.original-price');
         const discountedPrice = $('.discounted-price');
         
+        // Update product title
         titlePreview.text(wizardData.productName || 'Product title');
-        descriptionPreview.text(wizardData.productDescription || 'Esse minim eiusmod amet et incididunt magna consectetur laborum. Ipsum est ullam do exercitation nostrud nostrud ex. Consectetur Lorem nostrud sint adipiscing amet ut cupidatat Lorem adipiscing veniam officia duis exercaetur Lorem labore. Non eu non');
         
-        if (wizardData.listPrice) {
-            originalPrice.text(`R$ ${wizardData.listPrice}`);
+        // Update description
+        descriptionPreview.text(wizardData.productDescription || 'Add a detailed product description to help customers understand what you\'re selling. Include features, benefits, and specifications.');
+        
+        // Update prices - check both camelCase and lowercase versions
+        const listPrice = wizardData.listPrice || wizardData.listprice || '';
+        const netPrice = wizardData.netPrice || wizardData.netprice || '';
+        
+        if (listPrice) {
+            originalPrice.text(`₹ ${listPrice}`).show();
+        } else {
+            originalPrice.text('₹ 0').hide();
         }
         
-        if (wizardData.netPrice) {
-            discountedPrice.text(`R$ ${wizardData.netPrice}`);
+        if (netPrice) {
+            discountedPrice.text(`₹ ${netPrice}`).show();
+        } else {
+            discountedPrice.text('₹ 0').hide();
+        }
+        
+        // Show/hide price section based on whether we have prices
+        if (listPrice || netPrice) {
+            $('.product-price-preview').show();
+        } else {
+            $('.product-price-preview').hide();
         }
     }
 
@@ -334,10 +383,10 @@ $(document).ready(function() {
     }
 
     function calculateDiscount() {
-        const listPrice = parseFloat(wizardData.listPrice) || 0;
-        const netPrice = parseFloat(wizardData.netPrice) || 0;
+        const listPrice = parseFloat(wizardData.listPrice || wizardData.listprice) || 0;
+        const netPrice = parseFloat(wizardData.netPrice || wizardData.netprice) || 0;
         
-        if (listPrice > 0 && netPrice > 0) {
+        if (listPrice > 0 && netPrice > 0 && listPrice > netPrice) {
             const discount = Math.round(((listPrice - netPrice) / listPrice) * 100);
             $('#discount-percentage').val(discount);
             wizardData.discountPercentage = discount.toString();
