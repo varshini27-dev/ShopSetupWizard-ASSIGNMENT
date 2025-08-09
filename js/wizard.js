@@ -57,7 +57,7 @@ $(document).ready(function() {
         selectTheme(theme);
     });
 
-    $('.btn-theme-apply').on('click', function(e) {
+    $('.btn-theme-action').on('click', function(e) {
         e.stopPropagation();
         const theme = $(this).closest('.theme-card').data('theme');
         selectTheme(theme);
@@ -217,21 +217,19 @@ $(document).ready(function() {
         
         // Update UI
         $('.theme-card').removeClass('selected');
-        $('.btn-theme-select').removeClass('selected');
-        $('.btn-theme-apply').text('Apply');
+        $('.btn-theme-action').removeClass('selected').html('Apply');
         
         const selectedCard = $(`.theme-card[data-theme="${theme}"]`);
         selectedCard.addClass('selected');
-        selectedCard.find('.btn-theme-select').addClass('selected');
-        selectedCard.find('.btn-theme-apply').text('Selected');
+        selectedCard.find('.btn-theme-action').addClass('selected').html('<i class="fas fa-check"></i>');
         
         showToast(`${theme.charAt(0).toUpperCase() + theme.slice(1)} theme selected`, 'success');
     }
 
     function updateFlowDiagram() {
-        const productTypeBox = $('.flow-box.primary');
-        const categoryBox = $('.flow-box.secondary').first();
-        const subcategoryBox = $('.flow-box.secondary').last();
+        const productTypeBox = $('.product-type-box');
+        const categoryBox = $('.category-box');
+        const subcategoryBox = $('.subcategory-box');
         
         productTypeBox.text(wizardData.productType || 'Product type');
         categoryBox.text(wizardData.category || 'Category');

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloudnix Shop Setup Wizard</title>
+    <title>Cloudnix Shop Onboarding Wizard</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,345 +38,402 @@
 
         <!-- Step 1: Theme Selection -->
         <div class="step-content active" id="step-1">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-xl-8">
-                    <div class="step-header text-center mb-5">
-                        <h2 class="step-title">Here are the designs to recreate for your assignment -</h2>
-                        <p class="step-subtitle">Step 1 - The user will select a theme</p>
-                    </div>
-                    
-                    <div class="theme-selection-section">
-                        <h3 class="section-title mb-4">Apply a theme</h3>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="step-header text-center mb-5">
+                            <h1 class="step-title">Here are the designs to recreate for your assignment -</h1>
+                            <h2 class="step-subtitle">Step 1 - The user will select a theme</h2>
+                        </div>
                         
-                        <div class="row g-4">
-                            <!-- Bags Theme -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="theme-card" data-theme="bags">
-                                    <div class="theme-preview">
-                                        <div class="theme-mockup bags-mockup">
-                                            <div class="mockup-header">
-                                                <div class="mockup-nav">
-                                                    <div class="nav-item"></div>
-                                                    <div class="nav-item"></div>
-                                                    <div class="nav-item"></div>
-                                                </div>
-                                            </div>
-                                            <div class="mockup-content">
-                                                <div class="content-header">
-                                                    <h4>Style</h4>
-                                                    <p>Best Stech</p>
-                                                </div>
-                                                <div class="product-grid">
-                                                    <div class="product-item main-product">
-                                                        <div class="product-image main-image"></div>
+                        <div class="theme-selection-wrapper">
+                            <h3 class="theme-section-title">Apply a theme</h3>
+                            
+                            <div class="row g-4 justify-content-center">
+                                <!-- Bags Theme -->
+                                <div class="col-xl-4 col-lg-6 col-md-8">
+                                    <div class="theme-card selected" data-theme="bags">
+                                        <div class="theme-preview">
+                                            <div class="theme-mockup bags-mockup">
+                                                <!-- Browser mockup header -->
+                                                <div class="browser-header">
+                                                    <div class="browser-dots">
+                                                        <span class="dot red"></span>
+                                                        <span class="dot yellow"></span>
+                                                        <span class="dot green"></span>
                                                     </div>
-                                                    <div class="product-row">
-                                                        <div class="product-item small"></div>
-                                                        <div class="product-item small"></div>
-                                                        <div class="product-item small"></div>
-                                                        <div class="product-item small"></div>
+                                                </div>
+                                                <!-- Website content -->
+                                                <div class="website-content">
+                                                    <div class="site-header">
+                                                        <div class="logo-area">
+                                                            <div class="hamburger-menu">
+                                                                <span></span>
+                                                                <span></span>
+                                                                <span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="main-content">
+                                                        <div class="content-header">
+                                                            <h4>Style</h4>
+                                                            <p>Best Style</p>
+                                                        </div>
+                                                        <div class="product-showcase">
+                                                            <div class="main-product-image"></div>
+                                                            <div class="product-thumbnails">
+                                                                <div class="thumbnail"></div>
+                                                                <div class="thumbnail"></div>
+                                                                <div class="thumbnail"></div>
+                                                                <div class="thumbnail"></div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="theme-info">
-                                        <h4 class="theme-name">Bags theme</h4>
-                                        <span class="theme-badge">Recommended</span>
-                                    </div>
-                                    <div class="theme-action">
-                                        <button class="btn btn-theme-select selected">
-                                            <i class="fas fa-check"></i>
-                                        </button>
+                                        <div class="theme-info">
+                                            <h4 class="theme-name">Bags theme</h4>
+                                            <span class="theme-badge">Recommended</span>
+                                        </div>
+                                        <div class="theme-action">
+                                            <button class="btn btn-theme-action selected">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Flex Theme -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="theme-card" data-theme="flex">
-                                    <div class="theme-preview">
-                                        <div class="theme-mockup flex-mockup">
-                                            <div class="mockup-header flex-header">
-                                                <div class="flex-logo">FLEX</div>
-                                                <div class="flex-nav">
-                                                    <div class="nav-item"></div>
-                                                    <div class="nav-item"></div>
-                                                </div>
-                                            </div>
-                                            <div class="mockup-content flex-content">
-                                                <div class="flex-hero">
-                                                    <div class="hero-image"></div>
-                                                    <div class="hero-products">
-                                                        <div class="hero-product"></div>
-                                                        <div class="hero-product"></div>
+                                <!-- Flex Theme -->
+                                <div class="col-xl-4 col-lg-6 col-md-8">
+                                    <div class="theme-card" data-theme="flex">
+                                        <div class="theme-preview">
+                                            <div class="theme-mockup flex-mockup">
+                                                <!-- Browser mockup header -->
+                                                <div class="browser-header">
+                                                    <div class="browser-dots">
+                                                        <span class="dot red"></span>
+                                                        <span class="dot yellow"></span>
+                                                        <span class="dot green"></span>
                                                     </div>
                                                 </div>
-                                                <div class="flex-products">
-                                                    <div class="flex-product"></div>
-                                                    <div class="flex-product"></div>
+                                                <!-- Website content -->
+                                                <div class="website-content">
+                                                    <div class="site-header flex-header">
+                                                        <div class="flex-logo">FLEX</div>
+                                                        <div class="flex-nav">
+                                                            <div class="nav-dot"></div>
+                                                            <div class="nav-dot"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="main-content flex-content">
+                                                        <div class="flex-hero-section"></div>
+                                                        <div class="flex-product-grid">
+                                                            <div class="flex-product-item"></div>
+                                                            <div class="flex-product-item"></div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="theme-info">
-                                        <h4 class="theme-name">Flex theme</h4>
-                                    </div>
-                                    <div class="theme-action">
-                                        <button class="btn btn-theme-apply">Apply</button>
+                                        <div class="theme-info">
+                                            <h4 class="theme-name">Flex theme</h4>
+                                        </div>
+                                        <div class="theme-action">
+                                            <button class="btn btn-theme-action">Apply</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Chic Theme -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="theme-card" data-theme="chic">
-                                    <div class="theme-preview">
-                                        <div class="theme-mockup chic-mockup">
-                                            <div class="mockup-header chic-header">
-                                                <div class="chic-logo">chic</div>
-                                                <div class="chic-nav">
-                                                    <div class="nav-item"></div>
-                                                    <div class="nav-item"></div>
-                                                </div>
-                                            </div>
-                                            <div class="mockup-content chic-content">
-                                                <div class="chic-hero">
-                                                    <div class="hero-image main-hero"></div>
-                                                    <div class="hero-text">
-                                                        <h5>Premium Fashion</h5>
-                                                        <button class="cta-btn">SHOP NOW</button>
+                                <!-- Chic Theme -->
+                                <div class="col-xl-4 col-lg-6 col-md-8">
+                                    <div class="theme-card" data-theme="chic">
+                                        <div class="theme-preview">
+                                            <div class="theme-mockup chic-mockup">
+                                                <!-- Browser mockup header -->
+                                                <div class="browser-header">
+                                                    <div class="browser-dots">
+                                                        <span class="dot red"></span>
+                                                        <span class="dot yellow"></span>
+                                                        <span class="dot green"></span>
                                                     </div>
                                                 </div>
-                                                <div class="chic-products">
-                                                    <div class="chic-product"></div>
-                                                    <div class="chic-product"></div>
-                                                    <div class="chic-product"></div>
-                                                    <div class="chic-product"></div>
+                                                <!-- Website content -->
+                                                <div class="website-content">
+                                                    <div class="site-header chic-header">
+                                                        <div class="chic-logo">chic</div>
+                                                        <div class="chic-nav">
+                                                            <div class="nav-dot"></div>
+                                                            <div class="nav-dot"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="main-content chic-content">
+                                                        <div class="chic-hero">
+                                                            <div class="hero-image-area"></div>
+                                                            <div class="hero-text-area">
+                                                                <h5>Premium Fashion</h5>
+                                                                <div class="cta-button">SHOP NOW</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="chic-product-grid">
+                                                            <div class="chic-product"></div>
+                                                            <div class="chic-product"></div>
+                                                            <div class="chic-product"></div>
+                                                            <div class="chic-product"></div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="theme-info">
-                                        <h4 class="theme-name">Chic theme</h4>
-                                    </div>
-                                    <div class="theme-action">
-                                        <button class="btn btn-theme-apply">Apply</button>
+                                        <div class="theme-info">
+                                            <h4 class="theme-name">Chic theme</h4>
+                                        </div>
+                                        <div class="theme-action">
+                                            <button class="btn btn-theme-action">Apply</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Navigation -->
-            <div class="step-navigation">
-                <div class="nav-buttons">
-                    <button class="btn btn-primary btn-next" data-next="2">Next</button>
+                
+                <!-- Navigation -->
+                <div class="step-navigation">
+                    <div class="nav-buttons">
+                        <button class="btn btn-primary btn-next" data-next="2">Next</button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Step 2: Product Type and Category -->
         <div class="step-content" id="step-2">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-xl-6">
-                    <div class="step-header text-center mb-5">
-                        <h2 class="step-title">Step 2 - The user will add the product type and category</h2>
-                    </div>
-                    
-                    <div class="row">
-                        <!-- Form Section -->
-                        <div class="col-lg-6">
-                            <div class="category-form-section">
-                                <h3 class="section-title mb-4">Lets add a type, Category and Sub-category</h3>
-                                
-                                <form id="category-form">
-                                    <div class="form-group mb-4">
-                                        <label for="product-type" class="form-label">Add a product type</label>
-                                        <input type="text" class="form-control" id="product-type" placeholder="eg - books">
-                                    </div>
-                                    
-                                    <div class="form-group mb-4">
-                                        <label for="category" class="form-label">Add a category (optional)</label>
-                                        <input type="text" class="form-control" id="category" placeholder="eg - Academic book">
-                                    </div>
-                                    
-                                    <div class="form-group mb-4">
-                                        <label for="subcategory" class="form-label">Add a subcategory (optional)</label>
-                                        <input type="text" class="form-control" id="subcategory" placeholder="eg - medical book">
-                                    </div>
-                                </form>
-                            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="step-header text-center mb-5">
+                            <h1 class="step-title">Step 2 - The user will add the product type and category</h1>
                         </div>
                         
-                        <!-- Flow Diagram -->
-                        <div class="col-lg-6">
-                            <div class="flow-diagram">
-                                <div class="flow-item product-type-flow">
-                                    <div class="flow-box primary">Product type</div>
-                                    <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="category-setup-wrapper">
+                            <div class="row g-5 align-items-center">
+                                <!-- Form Section -->
+                                <div class="col-lg-6">
+                                    <div class="category-form-section">
+                                        <h3 class="form-section-title">Lets add a type, Category and Sub-category</h3>
+                                        
+                                        <form id="category-form" class="category-form">
+                                            <div class="form-group">
+                                                <label for="product-type" class="form-label">Add a product type</label>
+                                                <input type="text" class="form-control" id="product-type" placeholder="eg - books">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="category" class="form-label">Add a category (optional)</label>
+                                                <input type="text" class="form-control" id="category" placeholder="eg - Academic book">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="subcategory" class="form-label">Add a subcategory (optional)</label>
+                                                <input type="text" class="form-control" id="subcategory" placeholder="eg - medical book">
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="flow-item category-flow">
-                                    <div class="flow-box secondary">Category</div>
-                                    <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
-                                </div>
-                                <div class="flow-item subcategory-flow">
-                                    <div class="flow-box secondary">Sub-Category</div>
-                                    <div class="flow-arrow horizontal"><i class="fas fa-arrow-right"></i></div>
-                                    <div class="flow-box accent">Product</div>
+                                
+                                <!-- Flow Diagram -->
+                                <div class="col-lg-6">
+                                    <div class="flow-diagram-section">
+                                        <div class="flow-diagram">
+                                            <div class="flow-step">
+                                                <div class="flow-box product-type-box">Product type</div>
+                                                <div class="flow-arrow down">
+                                                    <i class="fas fa-arrow-down"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flow-step">
+                                                <div class="flow-box category-box">Category</div>
+                                                <div class="flow-arrow down">
+                                                    <i class="fas fa-arrow-down"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flow-step final-step">
+                                                <div class="flow-box subcategory-box">Sub-Category</div>
+                                                <div class="flow-arrow right">
+                                                    <i class="fas fa-arrow-right"></i>
+                                                </div>
+                                                <div class="flow-box product-box">Product</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Navigation -->
-            <div class="step-navigation">
-                <div class="nav-buttons">
-                    <button class="btn btn-outline-secondary btn-back" data-prev="1">Back</button>
-                    <button class="btn btn-primary btn-next" data-next="3">Next</button>
+                
+                <!-- Navigation -->
+                <div class="step-navigation">
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline-secondary btn-back" data-prev="1">Back</button>
+                        <button class="btn btn-primary btn-next" data-next="3">Next</button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Step 3: Product Details and Pricing -->
         <div class="step-content" id="step-3">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="step-header text-center mb-5">
-                        <h2 class="step-title">Step 3 - this page should have a scroll bar as shown below</h2>
-                    </div>
-                    
-                    <div class="row g-4">
-                        <!-- Form Section -->
-                        <div class="col-lg-6">
-                            <div class="product-form-wrapper">
-                                <div class="product-form-container">
-                                    <h3 class="section-title mb-4">Lets add your first product</h3>
-                                    
-                                    <form id="product-form">
-                                        <!-- Basic Details -->
-                                        <div class="form-section mb-4">
-                                            <h4 class="subsection-title mb-3">Basic Details</h4>
-                                            
-                                            <div class="form-group mb-3">
-                                                <label for="product-name" class="form-label">Product name</label>
-                                                <input type="text" class="form-control" id="product-name" placeholder="eg - anatomy book">
-                                            </div>
-                                            
-                                            <div class="form-group mb-3">
-                                                <label for="product-description" class="form-label">Product Description</label>
-                                                <textarea class="form-control" id="product-description" rows="4" placeholder="Est nisl mollit excepteur laboris tempor fugiat laborum occaecat laborum ullam incididunt ut sit dolor. Consequat veniam ut mollit nos"></textarea>
-                                                <div class="textarea-toolbar">
-                                                    <div class="toolbar-icons">
-                                                        <i class="fas fa-bold"></i>
-                                                        <i class="fas fa-italic"></i>
-                                                        <i class="fas fa-underline"></i>
-                                                        <i class="fas fa-link"></i>
-                                                        <i class="fas fa-image"></i>
-                                                    </div>
-                                                    <div class="char-count">0</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group mb-3">
-                                                <label class="form-label">Add Image(s)</label>
-                                                <div class="image-upload-area">
-                                                    <div class="upload-placeholder">
-                                                        <i class="fas fa-image"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group mb-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="has-sku" checked>
-                                                    <label class="form-check-label" for="has-sku">
-                                                        this product has an SKU code
-                                                    </label>
-                                                </div>
-                                                <input type="text" class="form-control mt-2" id="sku-code" placeholder="eg - PROD0001">
-                                            </div>
-                                            
-                                            <div class="form-group mb-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="has-hsn">
-                                                    <label class="form-check-label" for="has-hsn">
-                                                        this product has an HSN/SAC code
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Pricing Details -->
-                                        <div class="form-section">
-                                            <h4 class="subsection-title mb-3">Pricing Details</h4>
-                                            
-                                            <div class="form-group mb-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="price-inclusive-gst" checked>
-                                                    <label class="form-check-label" for="price-inclusive-gst">
-                                                        price inclusive of GST
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="row g-3 mb-3">
-                                                <div class="col-6">
-                                                    <label for="net-price" class="form-label">Net price</label>
-                                                    <input type="text" class="form-control" id="net-price" placeholder="eg - 80">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="list-price" class="form-label">List price</label>
-                                                    <input type="text" class="form-control" id="list-price" placeholder="eg - 100">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="row g-3 mb-3">
-                                                <div class="col-6">
-                                                    <label for="discount-percentage" class="form-label">Discount percentage</label>
-                                                    <input type="text" class="form-control" id="discount-percentage" placeholder="eg - 40">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="gst-rate" class="form-label">GST rate</label>
-                                                    <input type="text" class="form-control" id="gst-rate" placeholder="%">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="row g-3 mb-3">
-                                                <div class="col-6">
-                                                    <label for="shipping-charges" class="form-label">Shipping charges (if any)</label>
-                                                    <input type="text" class="form-control" id="shipping-charges" placeholder="eg - 40">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="stock-level" class="form-label">Stock level</label>
-                                                    <input type="text" class="form-control" id="stock-level" placeholder="eg - 110">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="step-header text-center mb-5">
+                            <h1 class="step-title">Step 3 - this page should have a scroll bar as shown below</h1>
                         </div>
                         
-                        <!-- Product Preview -->
-                        <div class="col-lg-6">
-                            <div class="product-preview-section">
-                                <div class="product-preview-card">
-                                    <div class="product-image-preview">
-                                        <div class="preview-placeholder"></div>
-                                    </div>
-                                    <div class="product-details-preview">
-                                        <h4 class="product-title-preview">Product title</h4>
-                                        <div class="product-description-preview">
-                                            <p>Esse minim eiusmod amet et incididunt magna consectetur laborum. Ipsum est ullam do exercitation nostrud nostrud ex. Consectetur Lorem nostrud sint adipiscing amet ut cupidatat Lorem adipiscing veniam officia duis exercaetur Lorem labore. Non eu non</p>
+                        <div class="product-setup-wrapper">
+                            <div class="row g-4">
+                                <!-- Form Section -->
+                                <div class="col-lg-6">
+                                    <div class="product-form-scrollable">
+                                        <div class="product-form-container">
+                                            <h3 class="form-section-title">Lets add your first product</h3>
+                                            
+                                            <form id="product-form" class="product-form">
+                                                <!-- Basic Details -->
+                                                <div class="form-section">
+                                                    <h4 class="subsection-title">Basic Details</h4>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="product-name" class="form-label">Product name</label>
+                                                        <input type="text" class="form-control" id="product-name" placeholder="eg - anatomy book">
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="product-description" class="form-label">Product Description</label>
+                                                        <textarea class="form-control" id="product-description" rows="4" placeholder="Est nisl mollit excepteur laboris tempor fugiat laborum occaecat laborum ullam incididunt ut sit dolor. Consequat veniam ut mollit nos"></textarea>
+                                                        <div class="textarea-toolbar">
+                                                            <div class="toolbar-icons">
+                                                                <i class="fas fa-bold"></i>
+                                                                <i class="fas fa-italic"></i>
+                                                                <i class="fas fa-underline"></i>
+                                                                <i class="fas fa-link"></i>
+                                                                <i class="fas fa-image"></i>
+                                                            </div>
+                                                            <div class="char-count">0</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label class="form-label">Add Image(s)</label>
+                                                        <div class="image-upload-area">
+                                                            <div class="upload-placeholder">
+                                                                <i class="fas fa-image"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="has-sku" checked>
+                                                            <label class="form-check-label" for="has-sku">
+                                                                this product has an SKU code
+                                                            </label>
+                                                        </div>
+                                                        <input type="text" class="form-control mt-2" id="sku-code" placeholder="eg - PROD0001">
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="has-hsn">
+                                                            <label class="form-check-label" for="has-hsn">
+                                                                this product has an HSN/SAC code
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Pricing Details -->
+                                                <div class="form-section">
+                                                    <h4 class="subsection-title">Pricing Details</h4>
+                                                    
+                                                    <div class="form-group">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="price-inclusive-gst" checked>
+                                                            <label class="form-check-label" for="price-inclusive-gst">
+                                                                price inclusive of GST
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="row g-3">
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="net-price" class="form-label">Net price</label>
+                                                                <input type="text" class="form-control" id="net-price" placeholder="eg - 80">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="list-price" class="form-label">List price</label>
+                                                                <input type="text" class="form-control" id="list-price" placeholder="eg - 100">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="row g-3">
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="discount-percentage" class="form-label">Discount percentage</label>
+                                                                <input type="text" class="form-control" id="discount-percentage" placeholder="eg - 40">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="gst-rate" class="form-label">GST rate</label>
+                                                                <input type="text" class="form-control" id="gst-rate" placeholder="%">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="row g-3">
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="shipping-charges" class="form-label">Shipping charges (if any)</label>
+                                                                <input type="text" class="form-control" id="shipping-charges" placeholder="eg - 40">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="stock-level" class="form-label">Stock level</label>
+                                                                <input type="text" class="form-control" id="stock-level" placeholder="eg - 110">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="product-price-preview">
-                                            <span class="original-price">R$ 100</span>
-                                            <span class="discounted-price">R$ 90</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Product Preview -->
+                                <div class="col-lg-6">
+                                    <div class="product-preview-section">
+                                        <div class="product-preview-card">
+                                            <div class="product-image-preview">
+                                                <div class="preview-image-placeholder"></div>
+                                            </div>
+                                            <div class="product-details-preview">
+                                                <h4 class="product-title-preview">Product title</h4>
+                                                <div class="product-description-preview">
+                                                    <p>Esse minim eiusmod amet et incididunt magna consectetur laborum. Ipsum est ullam do exercitation nostrud nostrud ex. Consectetur Lorem nostrud sint adipiscing amet ut cupidatat Lorem adipiscing veniam officia duis exercaetur Lorem labore. Non eu non</p>
+                                                </div>
+                                                <div class="product-price-preview">
+                                                    <span class="original-price">R$ 100</span>
+                                                    <span class="discounted-price">R$ 90</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -384,15 +441,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Navigation -->
-            <div class="step-navigation">
-                <div class="nav-buttons">
-                    <button class="btn btn-outline-secondary btn-back" data-prev="2">
-                        <i class="fas fa-arrow-left me-2"></i>Back
-                    </button>
-                    <button class="btn btn-primary btn-next">Next</button>
+                
+                <!-- Navigation -->
+                <div class="step-navigation">
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline-secondary btn-back" data-prev="2">
+                            <i class="fas fa-arrow-left me-2"></i>Back
+                        </button>
+                        <button class="btn btn-primary btn-next">Next</button>
+                    </div>
                 </div>
             </div>
         </div>
